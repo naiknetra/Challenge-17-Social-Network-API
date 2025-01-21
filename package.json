@@ -1,0 +1,23 @@
+{
+  "name": "challenge-17-social-network-api",
+  "version": "1.0.0",
+  "description": "AS A social media startup",
+  "main": "index.js",
+  
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "start": "npm run build && node dist/server.js",
+    "build": "npx tsc"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/mongoose": "^5.11.96",
+    "typescript": "^5.7.3"
+  }
+}
