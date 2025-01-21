@@ -1,6 +1,5 @@
 
 import { Schema, model } from "mongoose";
-import  reactionsSchema  from "./Reaction.js";
 
 const thoughtSchema = new Schema({
     thoughtText: {
@@ -12,7 +11,7 @@ const thoughtSchema = new Schema({
     createdAt: {
         type: Date,
         default: Date.now,
-        get: (timestamp: Date) => new Date(timestamp).toLocaleDateString()
+        get: (timestamp) => new Date(timestamp).toLocaleDateString()
     },
     username: 
         {
@@ -20,7 +19,7 @@ const thoughtSchema = new Schema({
             required: true
         }
     ,
-    reactions: [reactionsSchema]
+    reactions: [ reactionsSchema]
        
     
 }, {
@@ -32,9 +31,9 @@ const thoughtSchema = new Schema({
 });
 
 
-thoughtSchema.virtual('reactionCount').get(function () {
+userSchema.virtual('friendCount').get(function () {
 
-    return this.reactions.length;
+    return this.friends.length;
 })
 const Thought = model('thought', thoughtSchema);
 

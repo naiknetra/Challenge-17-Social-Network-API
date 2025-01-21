@@ -1,13 +1,6 @@
-import { Schema, model } from "mongoose";
-interface IUser extends Document {
-username: string,
-email: string,
-thoughts: Schema.Types.ObjectId[],
-friends: Schema.Types.ObjectId[]
+import { Schema, model, } from "mongoose";
 
-}
-
-const userSchema = new Schema<IUser>({
+const userSchema = new Schema({
     username: {
         type: String,
         required: true,
@@ -18,7 +11,7 @@ const userSchema = new Schema<IUser>({
         type: String,
         required: true,
         unique: true,
-        match: [/.+@.+\..+/, 'Please enter a valid email address!']
+        match: [/.+@.+\..+/]
     },
     thoughts: [
         {
