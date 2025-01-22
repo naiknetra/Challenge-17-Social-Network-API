@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "AS A social media startup",
   "main": "index.js",
-  
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",

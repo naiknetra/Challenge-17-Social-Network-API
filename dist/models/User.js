@@ -1,5 +1,4 @@
-import { Schema, model, } from "mongoose";
-
+import { Schema, model } from "mongoose";
 const userSchema = new Schema({
     username: {
         type: String,
@@ -11,7 +10,7 @@ const userSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        match: [/.+@.+\..+/]
+        match: [/.+@.+\..+/, 'Please enter a valid email address!']
     },
     thoughts: [
         {
@@ -32,19 +31,8 @@ const userSchema = new Schema({
     },
     id: false
 });
-
-
 userSchema.virtual('friendCount').get(function () {
-
     return this.friends.length;
-})
+});
 const User = model('user', userSchema);
-
 export default User;
-
-
-
-
-
-
-
