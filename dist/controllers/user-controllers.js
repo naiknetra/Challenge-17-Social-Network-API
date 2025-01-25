@@ -19,3 +19,21 @@ export const createUser = async (req, res) => {
         res.status(500).json(err);
     }
 };
+export const getSingleUser = async (req, res) => {
+    try {
+        const user = await User.findOne({ _id: req.params.userId });
+        res.json(user);
+    }
+    catch (err) {
+        res.status(500).json(err);
+    }
+};
+export const updateUser = async (req, res) => {
+    try {
+        const user = await User.findOneAndUpdate({ _id: req.params.userId }, { $set: req.body }, { new: true, runValidators: true });
+        res.json(user);
+    }
+    catch (err) {
+        res.status(500).json(err);
+    }
+};
