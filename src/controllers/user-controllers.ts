@@ -43,3 +43,11 @@ export const updateUser = async (req: Request, res: Response) => {
         res.status(500).json(err);
     }
 }
+export const deleteUser = async (req: Request, res: Response) => {
+    try {
+        const user = await User.findOneAndDelete({ _id: req.params.userId });
+        res.json(user);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+}
